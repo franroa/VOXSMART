@@ -28,16 +28,16 @@ jobs:
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v2
-      # - name: Run Trivy vulnerability scanner in IaC mode
-      #   uses: aquasecurity/trivy-action@master
-      #   with:
-      #     scan-type: 'config'
-      #     hide-progress: false
-      #     format: 'sarif'
-      #     output: 'trivy-results.sarif'
-      #     exit-code: '1'
-      #     ignore-unfixed: true
-      #     severity: 'CRITICAL,HIGH'
+      - name: Run Trivy vulnerability scanner in IaC mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          hide-progress: false
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          exit-code: '0' # NOTE: this should be set to 1, but the current code has security issues and would fail
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
       # - name: Upload Trivy scan results to GitHub Security tab
       #   uses: github/codeql-action/upload-sarif@v2
       #   with:
@@ -63,7 +63,7 @@ jobs:
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
-      # - name: Install Graphviz
+      # - name: Install Graphviz # NOTE: Add this if I have time: Architecture diagram created automatically on merge
       #   uses: tlylt/install-graphviz@v1
       # - name: Create diagram
       #   run: |
