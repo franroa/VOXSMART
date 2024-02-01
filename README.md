@@ -20,7 +20,9 @@ After finishing the exercise I decided to add more code and functionality to sho
 ## Least Privilege:
 - GitHub Token with the least privileges according to the documentation.
 - AWS terraform's technical user is used to store the state file.
+## Concurrency/Backups:
 - Terraform state file is locked with a DynamoDB table.
+## Scanning:
 - Trivy is running to scan for vulnerabilities: As some vulnerabilities were found, it is just omitting the output.
 
 # Architecture
