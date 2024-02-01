@@ -31,8 +31,8 @@ variable "users" {
 
   default = [
     {
-      username = "franroa"
-      role     = "admin"
+      username = "franciscoroaprieto"
+      role     = "member"
     }
   ]
 }
@@ -82,8 +82,8 @@ variable "team_memberships" {
     team_id  = string
   }))
   default = {
-    franroa = {
-      username = "franroa"
+    franciscoroaprieto = {
+      username = "franciscoroaprieto"
       role     = "member"
       team_id  = "backend"
     },
