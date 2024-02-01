@@ -28,15 +28,15 @@ jobs:
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v2
-      # - name: "Install Trivy"
-      #   run: |
-      #     wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
-      #     tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
-      #     sudo mv trivy /usr/local/bin/trivy
-      #     rm trivy_0.18.3_Linux-64bit.tar.gz
-      # - name: Run Trivy
-      #   run: |
-      #      trivy config ./example.tf
+      - name: "Install Trivy"
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
+          tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
+          sudo mv trivy /usr/local/bin/trivy
+          rm trivy_0.18.3_Linux-64bit.tar.gz
+      - name: Run Trivy
+        run: |
+           trivy config ./example.tf
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v2
         with:
